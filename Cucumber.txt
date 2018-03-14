@@ -1,0 +1,74 @@
+CUCUMBER
+
+Linguagem: Gherkin(Ubiquitous Language) linguagem estruturada em torno do modelo de domínio
+Conceito: BDD(Behaviour-Driven-Development) - Desenvolvimento Guiado por Comportamento
+Valor agregado: Facilitar a comunicação com as equipes e reduzir o tempo investido em escrita de casos de testes
+
+Exemplo de aplicação: [fazerLogin.feature]
+
+#language: pt-br
+Funcionalidade: Fazer Login    					<descrição da funcionalidade>
+
+ Eu, como usário               					<usuário/ator>
+ Desejo fazer login na aplicação				<objetivo>
+
+Cenário: Fazer login na aplicação				<descrição do teste>
+Dado que eu tenha um usuário e senha			<estado predefinido>
+Quando eu faço login							<determinada ação>
+Então eu verifico se estou logado na aplicação	<resultado esperado>
+
+-------------------------------------------------
+.feature (extensão cucumber gerkin)
+# language: (idioma que a estoria será escrita)
+-------------------------------------------------
+
+Comandos/Etapas:
+
+* Given(Dado) - Antes que o ator interaja com o sistema... (semelhante as pré-condições)
+* When(Quando) - Deve descrever a ação principal do usuário, a transição do estado
+* Then(Então) - Deve observar os resultados
+* And(e) / But(mas) - Deve aglutinar condições whens ou thens
+* Background(Contexto) - Permite adicionar algum contexto aos cenários em um único recurso
+* Hooks(Ganchos) - Permitem executar blocos em vários pontos no ciclo de teste
+  >> Before(Antes) - Serão executados antes do primeiro passo de cada cenário
+  >> After(Depois) - Serão executados após o último passo de cada cenário
+  >> Around(Em torno) - Correrão "em torno" de um cenário
+  >> Step hooks(Gancho de passo) - Fará algo depois de cada passo
+  >> Tagged hooks(Ganchos marcados) - Permite o uso ou aglutinação de condições OR e/ou AND 
+  >> Global hooks(Ganchos globais) - Para que algo aconteça uma vez antes de qualquer execução de cenário
+  >> AfterConfiguration(Após configuração) - Para que algo aconteça após o Cucumber ter sido configurado
+* Invocar etapas de definições de etapas, no lugar da repetição: Isso torna os cenários mais curtos e declarativos
+  >> Exemplo: Repetição vs Definição de etapas
+     # feature 												# recurso
+     Cenário: Veja os últimos incidentes 					Cenário: Veja os últimos incidentes 
+       Dado o usuário John existe 							Dado que John está logado 
+       E eu logo como John 									Quando eu for para a página do incidente # Invocará definições de 2 passos
+       Quando eu vou para a página do incidente
+
+* Scenario Outlines(Esquema do Cenário) - Permitem expressar de forma mais concisa através do uso de um modelo com espaços reservados
+  >> Exemplo: Repetição 
+     Cenário : coma 5 em 12 
+     Dado que existem 12 pepinos
+      Quando eu como 5 pepinos
+      Então eu deveria ter 7 pepinos Cenário : comer 5 de 20 Dado que há 20 pepinos
+      Quando eu comer 5 pepinos
+      Então eu deveria ter 15 Pepinos
+	  
+  >> Exemplo: Repetição  
+     Esquema do Cenário: Comer 
+     Dado que existem <12> pepinos          <início>
+      Quando eu comer <5> pepinos			<comer>
+      Então eu deveria ter <7> Pepinos 		<left>
+      
+      Tabela :
+        |início|comer|left|
+        | 12   | 5   | 7  |  Irá executar a 1ª linha
+        | 20   | 5   | 15 |  Irá executar a 2ª linha
+  
+----------------------------------------------------------------------------------------------------
+Ao executar o código na IDE, o cucumber irá gerar os metódos para a LP que você estiver utilizando
+----------------------------------------------------------------------------------------------------
+
+
+Referências:
+https://github.com/cucumber/cucumber

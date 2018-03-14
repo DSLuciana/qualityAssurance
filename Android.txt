@@ -1,0 +1,22 @@
+ANDROID
+
+Configuração em ambiente Windows
+
+Pré-requisito(s): 
+JDK (Java Development Kit)
+Emulador do Android (Genymotion, HAXM)
+
+Passos:
+1) Baixar o Android Studio ()
+2) Exportar as variáveis de ambiente:
+	%LOCALAPPDATA%\Android\sdk		
+	%ProgramFiles%\Java\jdk1.8.0_111
+3) Adicionar os binários ao Path do sistema:
+	%ANDROID_HOME%\tools
+	%ANDROID_HOME%\platform-tools
+	%JAVA_HOME%\bin
+
+
+
+
+

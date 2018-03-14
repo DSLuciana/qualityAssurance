@@ -1,0 +1,18 @@
+SELENIUM
+
+3 Tipos de conjunto de comandos:
+
+1) Actions: Para modificar o estado. 
+São os comandos que dizem o que deve ser feito, tal como “clique neste link” ou então “selecione essa opção”. 
+Caso algum erro aconteça, a execução deste teste é interrompida. Muitos desses comandos possuem o sufixo “AndWait”
+como, por exemplo, “addScriptAndWait” ou então “altKeyUpAndWait”. Esse sufixo indica ao Selenium que a página irá 
+efetuar uma chamada ao servidor e que ele (Selenium) deve aguardar a página ser carregada.
+
+2) Accessors: Examina o estado da aplicação e armazena o resultado em variáveis como, por exemplo, “storeTitle”. 
+Eles também são utilizados para gerar Assertions automaticamente.
+
+3) Assertions: São como os Accessors, mas eles verificam se o estado da aplicação está de acordo com o esperado. 
+Exemplos: incluir “verificar se o título da tela é Consultar”, ou então, “verificar que o checkbox está checado”.
+	a) Assert - “assertText” (Quando o assert falhar, o teste é abortado)
+	b) Verify -  “verifyText” (Quando o verify falhar, o teste irá continuar, porém o erro será armazenado no log)
+	c) Whait For - “waitForText” (Se a condição não for verdadeira, o comando irá falhar e o teste será parado)
